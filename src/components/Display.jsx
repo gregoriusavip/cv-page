@@ -1,5 +1,4 @@
 /* Display user inputted data in a structured format */
-import './Display.css';
 
 function Display({ personalInfo, education, experience }) {
     return (
