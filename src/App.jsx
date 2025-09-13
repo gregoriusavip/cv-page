@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import PersonalForm from './components/PersonalForm';
 import Display from './components/Display'
 import EducationForm from './components/EducationForm';
@@ -27,12 +26,20 @@ function App() {
   });
 
   return (
-    <div>
-      <PersonalForm data={data} setData={setData}></PersonalForm>
-      <EducationForm data={data} setData={setData}></EducationForm>
-      <ExperienceForm data={data} setData={setData}></ExperienceForm>
-      <Display personalInfo={data.personalInfo} education={data.education} experience={data.experience} />
-    </div>
+    <main>
+      <section id="form">
+        <div className="container">
+          <PersonalForm data={data} setData={setData}></PersonalForm>
+          <EducationForm data={data} setData={setData}></EducationForm>
+          <ExperienceForm data={data} setData={setData}></ExperienceForm>
+        </div>
+      </section>
+      <section id="display">
+        <div className="container">
+          <Display personalInfo={data.personalInfo} education={data.education} experience={data.experience} />
+        </div>
+      </section>
+    </main>
   )
 }
 

@@ -3,7 +3,7 @@ import './Display.css';
 
 function Display({ personalInfo, education, experience }) {
     return (
-        <div className="display">
+        <>
             <section className="personal-info">
                 <h2>Personal Information</h2>
                 <p><strong>Name:</strong> {personalInfo.name}</p>
@@ -26,7 +26,7 @@ function Display({ personalInfo, education, experience }) {
                 <p><strong>Start date:</strong> {experience.startDate}</p>
                 <p><strong>End date:</strong> {experience.endDate}</p>
             </section>
-        </div>
+        </>
     );
 }
 
