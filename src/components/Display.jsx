@@ -10,6 +10,13 @@ function Display({ personalInfo, education, experience }) {
                 <p><strong>Email:</strong> {personalInfo.email}</p>
                 <p><strong>Phone:</strong> {personalInfo.phone}</p>
             </section>
+
+            <section className="education-info">
+                <h2>Educational Experience</h2>
+                <p><strong>School name:</strong> {education.school}</p>
+                <p><strong>Field of study:</strong> {education.fieldOfStudy}</p>
+                <p><strong>Finish date:</strong> {education.finishDate}</p>
+            </section>
         </div>
     );
 }

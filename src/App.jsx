@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import PersonalForm from './components/PersonalForm';
 import Display from './components/Display'
+import EducationForm from './components/EducationForm';
 
 function App() {
   const [data, setData] = useState({
@@ -10,14 +11,19 @@ function App() {
       email: '',
       phone: ''
     },
-    education: [],
+    education: {
+      school: '',
+      fieldOfStudy: '',
+      finishDate: ''
+    },
     experience: []
   });
 
   return (
     <div>
       <PersonalForm data={data} setData={setData}></PersonalForm>
-      <Display personalInfo={data.personalInfo} />
+      <EducationForm data={data} setData={setData}></EducationForm>
+      <Display personalInfo={data.personalInfo} education={data.education} />
     </div>
   )
 }
