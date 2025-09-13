@@ -1,33 +1,47 @@
+import { useState } from 'react'
 import './Form.css'
 
-function Form({ title, children, data, setData }) {
-    function handleEdit() {
-        console.log("Edit button clicked");
+function Form({ title, children, changeData }) {
+    const [className, setClassName] = useState("");
+
+    function toggleInputs(inputs) {
+        for (const input of inputs) {
+            input.toggleAttribute("disabled")
+        }
+    }
+
+    function handleEdit(e) {
+        e.preventDefault()
+        const editButton = e.currentTarget;
+        const form = editButton.parentNode.parentNode;
+        toggleInputs(form.getElementsByTagName("input"));
+
+        setClassName("");
+    }
+
+    function isSubmitted() {
+        return className === "submitted";
     }
 
     function handleSubmit(e) {
-        e.preventDefault();
+        e.preventDefault()
 
-        const formData = new FormData(e.target);
-        const newData = {
-            ...data,
-            personalInfo: {
-                name: formData.get("name"),
-                email: formData.get("email"),
-                phone: formData.get("phone")
-            },
-        }
-        setData(newData);
+        const form = e.currentTarget;
+        const formData = new FormData(form)
+        changeData(formData);
+
+        toggleInputs(form.getElementsByTagName("input"));
+        setClassName("submitted");
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={className} onSubmit={handleSubmit}>
             <h2>{title}</h2>
             {children}
 
             <div className="buttons">
-                <button>Submit</button>
-                <button onClick={handleEdit}>Edit</button>
+                <button disabled={isSubmitted()}>Submit</button>
+                <button onClick={handleEdit} disabled={!isSubmitted()}>Edit</button>
             </div>
         </form>
     );
