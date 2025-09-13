@@ -30,7 +30,7 @@ function ExperienceForm({ data, setData }) {
             <label for="startDate">Enter your start date: </label>
             <input type="date" name="startDate" id="startDate" required />
 
-            <label for="endDate">Enter your end date/date you will end: </label>
+            <label for="endDate">Enter your end date/date you will finish: </label>
             <input type="date" name="endDate" id="endDate" required />
         </Form>
     )
