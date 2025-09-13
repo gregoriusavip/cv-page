@@ -14,7 +14,7 @@ function Form({ title, children, changeData }) {
         e.preventDefault()
         const editButton = e.currentTarget;
         const form = editButton.parentNode.parentNode;
-        toggleInputs(form.getElementsByTagName("input"));
+        toggleInputs(form.querySelectorAll("input, textarea"));
 
         setClassName("");
     }
@@ -30,7 +30,7 @@ function Form({ title, children, changeData }) {
         const formData = new FormData(form)
         changeData(formData);
 
-        toggleInputs(form.getElementsByTagName("input"));
+        toggleInputs(form.querySelectorAll("input, textarea"));
         setClassName("submitted");
     }
 
