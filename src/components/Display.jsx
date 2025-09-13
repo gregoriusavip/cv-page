@@ -17,6 +17,15 @@ function Display({ personalInfo, education, experience }) {
                 <p><strong>Field of study:</strong> {education.fieldOfStudy}</p>
                 <p><strong>Finish date:</strong> {education.finishDate}</p>
             </section>
+
+            <section className="experience-info">
+                <h2>Practical Experience</h2>
+                <p><strong>Position/Title:</strong> {experience.position}</p>
+                <p><strong>Company name:</strong> {experience.company}</p>
+                <p><strong>Main responsibilities:</strong> {experience.responsibilities}</p>
+                <p><strong>Start date:</strong> {experience.startDate}</p>
+                <p><strong>End date:</strong> {experience.endDate}</p>
+            </section>
         </div>
     );
 }

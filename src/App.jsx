@@ -3,6 +3,7 @@ import './App.css'
 import PersonalForm from './components/PersonalForm';
 import Display from './components/Display'
 import EducationForm from './components/EducationForm';
+import ExperienceForm from './components/ExperienceForm';
 
 function App() {
   const [data, setData] = useState({
@@ -16,14 +17,21 @@ function App() {
       fieldOfStudy: '',
       finishDate: ''
     },
-    experience: []
+    experience: {
+      position: '',
+      company: '',
+      responsibilities: '',
+      startDate: '',
+      endDate: ''
+    }
   });
 
   return (
     <div>
       <PersonalForm data={data} setData={setData}></PersonalForm>
       <EducationForm data={data} setData={setData}></EducationForm>
-      <Display personalInfo={data.personalInfo} education={data.education} />
+      <ExperienceForm data={data} setData={setData}></ExperienceForm>
+      <Display personalInfo={data.personalInfo} education={data.education} experience={data.experience} />
     </div>
   )
 }
