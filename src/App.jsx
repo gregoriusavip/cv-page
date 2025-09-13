@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div>
-      <Form title="Personal Information" setData={setData}>
+      <Form title="Personal Information" data={data} setData={setData}>
         <label for="name">Enter your name: </label>
         <input type="text" name="name" id="name" required />
 

@@ -1,6 +1,6 @@
 import './Form.css'
 
-function Form({ title, children, setData }) {
+function Form({ title, children, data, setData }) {
     function handleEdit() {
         console.log("Edit button clicked");
     }
@@ -10,13 +10,12 @@ function Form({ title, children, setData }) {
 
         const formData = new FormData(e.target);
         const newData = {
+            ...data,
             personalInfo: {
                 name: formData.get("name"),
                 email: formData.get("email"),
                 phone: formData.get("phone")
             },
-            education: [],
-            experience: []
         }
         setData(newData);
     }
